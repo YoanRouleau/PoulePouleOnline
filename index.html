@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>PoulePouleOnline</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="section home is-active">     
+            <h1>Poule Poule Online</h1>
+            <div class="home--pseudo-container">
+                <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
+            </div>
+            <div class="buttons-container">
+                <a href="/rules">
+                    <div class="button button-primary goToRules">  
+                        <span>Règles du jeu</span>
+                    </div>
+                </a>
+                <div class="button button-secondary goToLoby">
+                    <span>Lancer</span>
+                </div>
+            </div>
+            <p class="warning">Tu dois d'abord saisir un pseudo!</p>
+        </div>
+        <div class="section lobby">
+            <h1>Lobby</h1>
+            <table class="lobby--table">
+                <tr class="lobby--table-head">
+                    <th>Joueur</th>
+                    <th>Status</th>
+                </tr>
+            </table>
+            <div class="buttons-container">
+                <div class="button button-primary setReady">
+                    <span>Prêt !</span>
+                </div>
+            </div>
+            <!-- <div class="lobby--difficulty">
+                <h3>Difficulté : </h3>
+                <select name="difficulty is-active">
+                    <option value="easy">Facile (TROP facile)</option>
+                    <option value="normal">Normal (pour le coup c'est ok)</option>
+                    <option value="difficult">Hardcore (genre vraiment)</option>
+                </select>
+            </div> -->
+        </div>
+        <div class="section countdown">
+            <h1>Lancement de la partie dans :</h1>
+            <div>
+                <h2 class="countdown--tic 3 is-active">3</h2>
+                <h2 class="countdown--tic 2">2</h2>
+                <h2 class="countdown--tic 1">1</h2>
+            </div>
+        </div>
+        <div class="section game d-none">
+            <div class="game--river">
+                <div class="game--card is-active"></div>
+            </div>
+            <div class="buttons-container">
+                <div class="button button-secondary stopGame">
+                    <span>Stop!!</span>
+                </div>
+            </div>
+        </div>
+        <div class="section debate">
+            <div class="debate--other-players">
+                <h1>La partie a été interrompu par <br><span class="player-name"></span></h1>
+                <p class="notice">Contestez-vous sa parole ?</p>
+                <div class="buttons-container">
+                    <div class="button button-tertiary wrong">
+                        <span>Il ment!!</span>
+                    </div>
+                    <div class="button button-4 right">
+                        <span>Il a raison...</span>
+                    </div>
+                </div>
+                <p class="debate--votes notice">Nombre de joueurs ayant votés : <span class="current"></span> sur <span class="total"></span></p>
+            </div>
+            <div class="debate--interupt-player">
+                <h1>Les joueurs remettent en cause votre parole. <br>Veuillez patienter.</h1>
+            </div>
+        </div>
+        <section class="section results">
+            <div class="results--wrapper">
+                <div class="results--win">
+                    <h1>Gagné !</h1>
+                    <p>Il y avait <span class="egg-count"></span> oeuf(s).</p>
+                </div>
+                <div class="results--loose">
+                    <h1>Perdu ...</h1>
+                    <p>Il y avait <span class="egg-count"></span> oeuf(s).</p>
+                </div>
+                <div class="buttons-container">
+                    <div class="button button-5 backToHome">
+                        <span>Retour au menu principal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.12.0/underscore-min.js"></script>
+    <script src="js/socket.io.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

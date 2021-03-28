@@ -1,0 +1,442 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.wrapper h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.wrapper p {
+  text-align: center;
+}
+
+.wrapper.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.wrapper.win {
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  background-color: #3E992B;
+  color: white;
+}
+
+.wrapper.loose {
+  color: white;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  background-color: #F0706A;
+}
+
+.wrapper.rules-layout {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.buttons-container {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.buttons-container a {
+  text-decoration: none;
+}
+
+.section {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.section.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.home--pseudo-container {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.lobby--table {
+  width: 350px;
+  margin-top: 30px;
+}
+
+.lobby--table-head {
+  background-color: black;
+  color: white;
+}
+
+.lobby--table th, .lobby--table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.lobby--difficulty {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.lobby--difficulty h3 {
+  margin-bottom: 5px;
+}
+
+.rules {
+  margin: 50px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  width: 80%;
+}
+
+.rules h3 {
+  margin-bottom: 10px;
+}
+
+.rules p {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.rules img {
+  height: 100px;
+  width: auto;
+}
+
+.rules--card-container {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.rules--card-container p {
+  margin-left: 20px;
+}
+
+.status {
+  display: none;
+}
+
+.status.is-active {
+  display: block;
+}
+
+.status.ready {
+  color: green;
+}
+
+.status.not-ready {
+  color: red;
+}
+
+.countdown--tic {
+  margin-top: 30px;
+  font-size: 2em;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.countdown--tic.is-active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.game.is-active .game--river {
+  opacity: 1;
+  visibility: visible;
+}
+
+.game.d-none {
+  display: none;
+}
+
+.game--river {
+  opacity: 0;
+  visibility: hidden;
+  height: 320px;
+  width: 216px;
+}
+
+.game--card {
+  position: absolute;
+  opacity: 0;
+  height: 320px;
+  width: 216px;
+  visibility: hidden;
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+  border: solid 1px black;
+  border-radius: 20px;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.game--card.o {
+  background-image: url("../img/o.png");
+  background-size: cover;
+}
+
+.game--card.oa {
+  background-image: url("../img/oa.png");
+  background-size: cover;
+}
+
+.game--card.r {
+  background-image: url("../img/r.png");
+  background-size: cover;
+}
+
+.game--card.p {
+  background-image: url("../img/p.png");
+  background-size: cover;
+}
+
+.game--card.is-active {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.debate--other-players {
+  display: none;
+}
+
+.debate--other-players.is-active {
+  display: block;
+}
+
+.debate--interupt-player {
+  display: none;
+}
+
+.debate--interupt-player.is-active {
+  display: block;
+}
+
+.debate--votes {
+  margin-top: 30px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.debate--votes.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.results p {
+  margin-top: 30px;
+}
+
+.results--loose, .results--win {
+  display: none;
+}
+
+.results--loose.is-active, .results--win.is-active {
+  display: block;
+}
+
+.warning {
+  opacity: 0;
+  visibility: hidden;
+  color: red;
+  font-style: italic;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  margin-top: 30px;
+}
+
+.warning.shown {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.notice {
+  margin-top: 30px;
+}
+
+.button {
+  cursor: pointer;
+  margin: 0 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  padding: 10px 30px;
+}
+
+.button.button-primary {
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.button.button-primary:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  color: white;
+  background-color: black;
+  border: solid 1px white;
+}
+
+.button.button-primary a {
+  text-decoration: none;
+  color: black;
+}
+
+.button.button-primary a:hover {
+  color: black;
+}
+
+.button.button-secondary {
+  color: white;
+  background-color: black;
+  border: solid 1px white;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.button.button-secondary:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+}
+
+.button.button-secondary a {
+  text-decoration: none;
+  color: white;
+}
+
+.button.button-secondary a:hover {
+  color: black;
+}
+
+.button.button-tertiary {
+  color: white;
+  background-color: #F0706A;
+  border: solid 1px white;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.button.button-tertiary:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  color: #F0706A;
+  background-color: white;
+  border: solid 1px #F0706A;
+}
+
+.button.button-4 {
+  color: white;
+  background-color: #3E992B;
+  border: solid 1px white;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.button.button-4:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  color: #3E992B;
+  background-color: white;
+  border: solid 1px #3E992B;
+}
+
+.button.button-5 {
+  color: white;
+  border: solid 1px white;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.button.button-5:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  color: black;
+  background-color: white;
+  border: solid 1px white;
+}
+/*# sourceMappingURL=style.css.map */
